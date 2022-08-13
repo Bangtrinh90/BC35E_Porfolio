@@ -1,0 +1,88 @@
+/* GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'Hind', sans-serif;
+}
+
+/* HEADER */
+
+header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+/* trước hover */
+#portNavbar .nav-link::after {
+    content: '';
+    width: 0;
+    transition: all .5s;
+    height: 5px;
+    background-color: #35a22c;
+    display: block;
+}
+
+/* sau hover */
+#portNavbar .nav-link:hover::after {
+    width: 100%;
+}
+
+#portNavbar .active .nav-link::after {
+    width: 100%;
+}
+
+/* CAROUSEL */
+
+/* B1: Chỉnh kích thước ảnh avatar
+B2: Chỉnh hình nền (height)
+B3: Chỉnh caption vô giữa so với Carousel
+B4: Chỉnh nút tròn indicator */
+
+/* /* B1: Chỉnh kích thước ảnh avatar */
+.portAvatar {
+    width: 140px;
+    border-radius: 50%;
+}
+
+/* B2: Chỉnh hình nền (height) */
+/* viewport width (dùng cho font-size) = vw (sdung cho khu vực ndung quan trọng của web, tránh ndung bị rớt hàng, méo chữ, ko muốn thay đổi ndung: slogan, banner) */
+
+/* viewport height (đơn vị sẽ theo kích thước trình duyệt, kích thước theo thẻ cha gần nhất) = vh = phủ ndung trên hình cover carousel, lúc kéo co giãn cả ndung */
+
+.portCarouselID .carousel-item {
+    height: 100vh;
+}
+
+/* canh hình avatar theo kích thước giao diện màn hình + xử lý hình cover ko bị bóp */
+#portCarouselID .carousel-item>img {
+    height: 100vh;
+    /* xử lý hình cover ko bị bóp */
+    object-fit: cover;
+    filter: brightness(70%);
+}
+
+/* B3: Chỉnh caption vô giữa so với Carousel + canh giữa vs thẻ position absolute */
+#portCarouselID .carousel-caption {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* B4: Chỉnh nút tròn indicator */
+#portCarouselID .carousel-indicators li {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+#portCarouselID .carousel-indicators li.active {
+    background-color: #35a22c;
+}
